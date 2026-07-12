@@ -4,7 +4,7 @@ Este script de Python automatiza la limpieza y visualización de datos provenien
 Requisitos Previos
 El script utiliza librerías externas para el procesamiento de datos y la generación de gráficos. Asegúrate de tenerlas instaladas ejecutando:
 
-Bash
+
 pip install pandas matplotlib seaborn wordcloud
 Características del Procesamiento
 Limpieza automática: Omite las primeras 9 líneas del archivo CSV (asumiendo que son metadatos o encabezados del reporte) y normaliza las columnas clave:
@@ -35,9 +35,8 @@ nube_de_palabras.png: Una nube de palabras (WordCloud) basada en el texto de las
 Modo de Uso
 El script se ejecuta a través de la terminal y requiere obligatoriamente la ruta del archivo CSV que deseas analizar como argumento.
 
-Bash
+
 python nombre_del_script.py ruta/al/archivo_de_menciones.csv
 Si necesitas ayuda sobre el argumento requerido, puedes ejecutar:
 
-Bash
 python nombre_del_script.py --help
