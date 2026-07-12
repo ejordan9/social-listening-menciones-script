@@ -1,0 +1,43 @@
+Analizador de Menciones y Sentimiento
+Este script de Python automatiza la limpieza y visualización de datos provenientes de reportes de menciones en redes sociales. El programa traduce las columnas clave del inglés al español, procesa el texto y genera automáticamente cinco gráficos estadísticos para analizar el comportamiento de la data.
+
+Requisitos Previos
+El script utiliza librerías externas para el procesamiento de datos y la generación de gráficos. Asegúrate de tenerlas instaladas ejecutando:
+
+Bash
+pip install pandas matplotlib seaborn wordcloud
+Características del Procesamiento
+Limpieza automática: Omite las primeras 9 líneas del archivo CSV (asumiendo que son metadatos o encabezados del reporte) y normaliza las columnas clave:
+
+Date → fecha
+
+Page Type → plataforma
+
+Sentiment → sentimiento
+
+Snippet → texto_mencion
+
+Generación de Reportes Visuales: El script no muestra ventanas emergentes; procesa todo en segundo plano y guarda los resultados directamente en el directorio de ejecución.
+
+Gráficos Generados
+Al finalizar la ejecución, encontrarás los siguientes archivos en tu carpeta:
+
+menciones_por_dia.png: Gráfico de barras que muestra el volumen total de menciones agrupadas por fecha.
+
+menciones_por_plataforma.png: Gráfico de barras con el top de las redes sociales o plataformas más utilizadas.
+
+menciones_por_sentimiento.png: Gráfico de pastel con la distribución general de sentimientos (positivo, negativo, neutral).
+
+Sentimiento_por_dia.png: Gráfico de líneas que permite ver la evolución temporal del sentimiento diario.
+
+nube_de_palabras.png: Una nube de palabras (WordCloud) basada en el texto de las menciones para identificar los temas más repetidos.
+
+Modo de Uso
+El script se ejecuta a través de la terminal y requiere obligatoriamente la ruta del archivo CSV que deseas analizar como argumento.
+
+Bash
+python nombre_del_script.py ruta/al/archivo_de_menciones.csv
+Si necesitas ayuda sobre el argumento requerido, puedes ejecutar:
+
+Bash
+python nombre_del_script.py --help

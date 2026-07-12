@@ -1,0 +1,5 @@
+*.png          
+*.csv          
+env/           
+__pycache__/   
+.pytest_cache/
