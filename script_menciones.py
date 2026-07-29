@@ -15,7 +15,11 @@ def cargar_y_limpiar_datos(ruta_archivo):
 
     # 3. Aplicamos el cambio al DataFrame
     df = df.rename(columns=columnas_nuevas)
-
+    df['fecha'] = pd.to_datetime(df['fecha'])
+    df['fecha'] = df['fecha'].dt.date
+    df['fecha'] = df['fecha'].astype(str)
+    
+    
     # 4. Devolvemos el DataFrame listo y traducido
     return df
 def obtener_top_plataformas(df):
@@ -44,7 +48,6 @@ if __name__ == "__main__":
     plt.savefig('menciones_por_dia.png') # Guardamos el primero
     plt.close() # Limpiamos el lienzo para el segundo gráfico
     #Creamos el DataFrame para las barras
-
     plataformas = obtener_top_plataformas(nuevo_df)
     sns.barplot(x='plataforma', y='cantidad', data=plataformas)
     plt.title('Top Plataformas')
@@ -72,3 +75,22 @@ if __name__ == "__main__":
     plt.axis('off')
     plt.savefig('nube_de_palabras.png')
     plt.close()
+    #Nueva sección para el diccionario que nos permitira exportar 
+    # los json
+    reporte = {
+    "total_menciones": len(nuevo_df),
+    "menciones_por_plataforma": plataformas.set_index("plataforma")["cantidad"].to_dict(),
+    "menciones_por_dia": menciones_por_dia.set_index("fecha")["cantidad"].to_dict(),
+    "volumen_por_sentimiento": sentimiento.set_index("sentimiento")["cantidad"].to_dict()
+    }
+    import json
+    with open('reporte.json', 'w') as f:
+        json.dump(reporte, f)
+    print("Reporte guardado en reporte.json")
+    nuevo_df.to_csv('menciones_filtradas.csv', index=False)
+    print("Menciones filtradas guardadas en menciones_filtradas.csv")
+    plataformas.to_csv('reporte_plataformas.csv', index=False)
+    menciones_por_dia.to_csv('reporte_menciones_por_dia.csv', index=False)
+    sentimiento.to_csv('reporte_sentimiento.csv', index=False)
+
+    

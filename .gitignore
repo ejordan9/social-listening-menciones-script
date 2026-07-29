@@ -3,3 +3,6 @@
 env/           
 __pycache__/   
 .pytest_cache/
+reporte.json
+reporte_*.csv
+menciones_filtradas.csv

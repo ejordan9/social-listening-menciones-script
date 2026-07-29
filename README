@@ -41,3 +41,5 @@ Si necesitas ayuda sobre el argumento requerido, puedes ejecutar:
 
 Bash
 python nombre_del_script.py --help
+
+V2.0: Ahora exportamos las metricas en archivos csv y json.
