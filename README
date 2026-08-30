@@ -36,9 +36,9 @@ Modo de Uso
 El script se ejecuta a través de la terminal y requiere obligatoriamente la ruta del archivo CSV que deseas analizar como argumento.
 
 
-python nombre_del_script.py ruta/al/archivo_de_menciones.csv
+python script_menciones.py ruta/al/archivo_de_menciones.csv
 Si necesitas ayuda sobre el argumento requerido, puedes ejecutar:
 
-python nombre_del_script.py --help
+python script_menciones.py --help
 
 V2.0: Ahora exportamos las metricas en archivos csv y json.
